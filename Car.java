@@ -30,7 +30,7 @@ public class Car {
             loc += direction;
             miles +=1;
             for (Passenger p:this.getPassengers()){
-                p.setLoc(p.getLoc()+direction);
+                p.setLoc(this.getLoc());
             }
         }
     }
@@ -44,18 +44,44 @@ public class Car {
         return direction;
     }
 
+    public int getMiles(){
+        return miles;
+    }
+
+    public int getLoc(){
+        return loc;
+    }
+    public int getDest(){
+        return dest;
+    }
+
     public String toString(){
         String result = "";
-        result += "Car" + this+ " - loc: "+ loc+", dest: "+dest;
+        result += "Car@" + this.hashCode() + " - loc: "+ this.loc+", dest: "+this.dest;
+        result += "     {";
         for (Passenger p: this.getPassengers()){
-            result += "     " + p.toString() + "\n";
+            result += p.toString() + "; ";
         }
+        result += "}";
         return result;
     }
 
     public static void main(String[] args){
         Car c = new Car(1, 4);
-        
+        Passenger p = new Passenger(1, 2);
+        c.getPassengers().add(p);
+        System.out.println(c.toString());
+        c.moveC();
+        System.out.println(c.toString());
+        c.moveC();
+        System.out.println(c.toString());
+        c.moveC();
+        System.out.println(c.toString());
+        c.moveC();
+        System.out.println(c.toString());
+        c.moveC();
+        System.out.println(c.toString());
+
     }
 
 }

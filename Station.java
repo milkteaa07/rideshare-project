@@ -19,27 +19,31 @@ public class Station {
         return station;
     }
 
-    // move @ station level
-    public void moveS(){
-        for (Car c: cars){
-            c.moveC();
-        }
-    }
-
     public String toString(){
         String result = "";
-        result += "STATION " + this+ ":";
-        result += "     PASSENGERS: ";
+        result += "\n     PASSENGERS: ";
         for (Passenger p: this.getPassengers()){
-            result += "          " + p.toString() + "\n";
+            result += "\n          " + p.toString();
         }
-        result += "\nCARS: ";
+        result += "\n     CARS: ";
         for (Car c: this.getCars()){
-            result += "          " + c.toString() + "\n";
+            result += "\n          " + c.toString();
         }
+        result += "\n";
         return result;
     }
 
+    public static void main(String[] args){
+        Station s = new Station();
+        System.out.println(s.toString());
+        Car c = new Car(1, 2);
+        s.getCars().add(c);
+        Passenger p = new Passenger(1, 4);
+        c.getPassengers().add(p);
+        Passenger p2= new Passenger(3, 4);
+        s.getPassengers().add(p2);
+        System.out.println(s.toString());
+    }
 
 }
 
