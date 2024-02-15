@@ -24,8 +24,38 @@ public class Car {
     }
 
     //moving function
-    public void move(){
-        loc += direction;
+    public void moveC(){
+        //search through all passengers at current station location
+        if (loc != dest){
+            loc += direction;
+            miles +=1;
+            for (Passenger p:this.getPassengers()){
+                p.setLoc(p.getLoc()+direction);
+            }
+        }
+    }
+
+    //getters
+    public ArrayList<Passenger> getPassengers(){
+        return passengers;
+    }
+
+    public int getDirection(){
+        return direction;
+    }
+
+    public String toString(){
+        String result = "";
+        result += "Car" + this+ " - loc: "+ loc+", dest: "+dest;
+        for (Passenger p: this.getPassengers()){
+            result += "     " + p.toString() + "\n";
+        }
+        return result;
+    }
+
+    public static void main(String[] args){
+        Car c = new Car(1, 4);
+        
     }
 
 }
