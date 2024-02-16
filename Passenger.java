@@ -1,4 +1,4 @@
-import java.util.*;
+
 public class Passenger{
    
     // fields
@@ -17,7 +17,7 @@ public class Passenger{
             direction = 1;
         }else if (loc>dest){
             direction = -1;
-        }
+        } 
     }
 
     // for random testing

@@ -1,12 +1,12 @@
 import java.util.*;
 public class Station {
     //fields
-    ArrayList<Passenger> station;
-    ArrayList<Car> cars;
+    private ArrayList<Passenger> station;
+    private ArrayList<Car> cars;
 
     //constructor
     public Station(){
-        station = new ArrayList<Passenger>(); // how to generate random loc and dest for passengers?
+        station = new ArrayList<Passenger>(); 
         cars = new ArrayList<Car>();
     }
 

@@ -7,10 +7,9 @@ public class Car {
     private int dest;
     private int direction; // 1: forward, -1: backward
     private ArrayList<Passenger> passengers;
+    private boolean moved;
 
     //constructor
-
-    //non-random testing
     public Car(int a, int b){
         miles = 0;
         loc = a;
@@ -21,6 +20,7 @@ public class Car {
             direction = -1;
         }
         passengers = new ArrayList<Passenger>();
+        moved = false;
     }
 
     //moving function
@@ -33,6 +33,9 @@ public class Car {
                 p.setLoc(this.getLoc());
             }
         }
+    }
+    public void setMoved(boolean b){
+        moved = b;
     }
 
     //getters
@@ -53,6 +56,9 @@ public class Car {
     }
     public int getDest(){
         return dest;
+    }
+    public boolean getMoved(){
+        return moved;
     }
 
     public String toString(){
