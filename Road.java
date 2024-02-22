@@ -58,11 +58,10 @@ public class Road {
                         }
                     }
                     // if the car is going in the same direction as the person add the person to the car
-                    if (c.getPassengers().size() <3){
-                        for (int i=0;i<s.getPassengers().size();i++){
-                            
+                    for (int i=0;i<s.getPassengers().size();i++){
+                        if (c.getPassengers().size()<3){
                             Passenger p = s.getPassengers().get(i);
-                            if (c.getDirection() == p.getDirection() && p.getLoc()!=p.getDest()){
+                            if (c.getDirection() == p.getDirection() && p.getLoc()!= p.getDest()){
                                 c.getPassengers().add(p);
                                 s.getPassengers().remove(i);
                                 i--;
@@ -126,7 +125,7 @@ public class Road {
         double count = 0;
         for (Station s: road){
             for (Car c: s.getCars()){
-                avg += c.getMiles();
+                avg += c.getPay();
                 count += 1;
             }
         }
@@ -135,7 +134,7 @@ public class Road {
 
     public String toString(){
         String result = "";
-        result += "\nNEW ROUND   NEW ROUND   NEW ROUND   NEW ROUND   NEW ROUND   NEW ROUND\n\n\n";
+        result += "\nNEW ROUND   NEW ROUND   NEW ROUND   NEW ROUND   NEW ROUND   NEW ROUND     NEW ROUND   NEW ROUND   NEW ROUND   NEW ROUND   NEW ROUND   NEW ROUND     \n\n\n";
         for (int i = 0; i<road.length;i++){
             result += "STATION " + (i+1) + ": ";
             result += road[i].toString() +"\n";
@@ -143,24 +142,25 @@ public class Road {
         return result;
     }
 
-
+    //testing
     public static void main(String[] args){
         Road r = new Road(5);
-        Car c1 = new Car(2, 3);
-        Car c2 = new Car(1, 5);
-        Passenger p1 = new Passenger(2, 4);
-        r.getRoad()[1].getCars().add(c1);
-        r.getRoad()[0].getCars().add(c2);
-        r.getRoad()[1].getPassengers().add(p1);
+        r.getRoad()[0].getCars().add(new Car(1, 5));
+        r.getRoad()[1].getPassengers().add(new Passenger(2, 5));
+        r.getRoad()[1].getPassengers().add(new Passenger(2, 5));
+        r.getRoad()[1].getPassengers().add(new Passenger(2, 5));
+        r.getRoad()[1].getPassengers().add(new Passenger(2, 5));
+        r.getRoad()[1].getPassengers().add(new Passenger(3, 5));
 
+        /**
+        Road r = new Road(5);
+        r.getRoad()[0].getCars().add(new Car(1, 4));
+        r.getRoad()[3].getCars().add(new Car(4, 4));
+        r.getRoad()[4].getCars().add(new Car(5, 2));
+        r.getRoad()[1].getPassengers().add(new Passenger(2, 3));
+        r.getRoad()[1].getPassengers().add(new Passenger(2, 1));
         System.out.println(r.toString());
-        while (!r.isDone()){
-            r.match();
-            System.out.println(r.toString());
-            r.moveR();
-            System.out.println(r.toString());
-        }
-
+         */
         
     }
     }

@@ -32,7 +32,7 @@ public class Station {
         result += "\n";
         return result;
     }
-
+    //testing
     public static void main(String[] args){
         Station s = new Station();
         System.out.println(s.toString());

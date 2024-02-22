@@ -8,6 +8,7 @@ public class Car {
     private int direction; // 1: forward, -1: backward
     private ArrayList<Passenger> passengers;
     private boolean moved;
+    private double pay;
 
     //constructor
     public Car(int a, int b){
@@ -32,10 +33,14 @@ public class Car {
             for (Passenger p:this.getPassengers()){
                 p.setLoc(this.getLoc());
             }
+            pay += this.getPassengers().size();
         }
     }
     public void setMoved(boolean b){
         moved = b;
+    }
+    public void setPay(int p){
+        pay = p;
     }
 
     //getters
@@ -60,6 +65,9 @@ public class Car {
     public boolean getMoved(){
         return moved;
     }
+    public double getPay(){
+        return pay;
+    }
 
     public String toString(){
         String result = "";
@@ -72,6 +80,7 @@ public class Car {
         return result;
     }
 
+    //testing
     public static void main(String[] args){
         Car c = new Car(1, 4);
         Passenger p = new Passenger(1, 2);
